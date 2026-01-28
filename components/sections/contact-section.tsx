@@ -1,17 +1,18 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useState } from 'react';
-import { Button } from '../ui/button';
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useState } from "react";
+import { Button } from "../ui/button";
+import { Send } from "lucide-react";
 
 export function ContactSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -19,13 +20,13 @@ export function ContactSection() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: "", email: "", message: "" });
     setTimeout(() => setSubmitted(false), 3000);
   };
 
@@ -36,7 +37,7 @@ export function ContactSection() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
           className="mb-20"
         >
           <h2 className="text-6xl sm:text-7xl font-light text-foreground max-w-2xl leading-tight">
@@ -49,7 +50,7 @@ export function ContactSection() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.9, delay: 0.1, ease: 'easeOut' }}
+            transition={{ duration: 0.9, delay: 0.1, ease: "easeOut" }}
             className="space-y-12"
           >
             <div>
@@ -88,12 +89,15 @@ export function ContactSection() {
           <motion.form
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
+            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
             onSubmit={handleSubmit}
             className="space-y-6"
           >
             <div>
-              <label htmlFor="name" className="block text-sm uppercase tracking-wide text-muted-foreground mb-3">
+              <label
+                htmlFor="name"
+                className="block text-sm uppercase tracking-wide text-muted-foreground mb-3"
+              >
                 Name
               </label>
               <input
@@ -109,7 +113,10 @@ export function ContactSection() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm uppercase tracking-wide text-muted-foreground mb-3">
+              <label
+                htmlFor="email"
+                className="block text-sm uppercase tracking-wide text-muted-foreground mb-3"
+              >
                 Email
               </label>
               <input
@@ -125,7 +132,10 @@ export function ContactSection() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm uppercase tracking-wide text-muted-foreground mb-3">
+              <label
+                htmlFor="message"
+                className="block text-sm uppercase tracking-wide text-muted-foreground mb-3"
+              >
                 Message
               </label>
               <textarea
@@ -145,7 +155,9 @@ export function ContactSection() {
                 type="submit"
                 className="bg-foreground text-background hover:bg-accent hover:text-muted px-8 py-3 text-sm uppercase tracking-wide transition-all duration-300"
               >
-                Send Message
+                <span className="inline-flex items-center gap-2">
+                  Send Message <Send className="h-4 w-4" />
+                </span>
               </Button>
             </div>
 

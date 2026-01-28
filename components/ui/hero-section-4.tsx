@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./button";
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 const TextRevealLine = ({
   children,
@@ -233,19 +233,24 @@ export function HeroSection() {
                 asChild
                 className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-3 text-sm uppercase tracking-wide transition-all duration-300"
               >
-                <Link href="#contact">Start a Project</Link>
+                <Link
+                  href="#contact"
+                  className="inline-flex items-center gap-2"
+                >
+                  Start a Project <ArrowRight className="h-4 w-4" />
+                </Link>
               </Button>
             </motion.div>
 
             {/* Layer 3: Micro interaction - underline on link */}
             <motion.a
               href="#about"
-              className="text-sm uppercase tracking-wide text-muted-foreground hover:text-foreground transition-colors relative"
+              className="text-sm uppercase tracking-wide text-muted-foreground hover:text-foreground transition-colors relative inline-flex items-center gap-2"
               whileHover={{ x: 4 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              <span className="relative">
-                Learn more
+              <span className="relative inline-flex items-center gap-2">
+                Learn more <ArrowRight className="h-4 w-4" />
                 <motion.span
                   className="absolute bottom-0 left-0 h-px bg-accent"
                   initial={{ width: 0 }}
