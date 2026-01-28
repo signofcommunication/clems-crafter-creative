@@ -84,6 +84,20 @@ export function HeroSection() {
       {/* Layer 2: Background animation */}
       <BackgroundGradient />
 
+      {/* Curved bridge to next section (softens the hard line) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10"
+      >
+        <div
+          className="mx-auto h-44 sm:h-64 w-[160%] -translate-x-[15%] rounded-t-[120%] blur-3xl opacity-70"
+          style={{
+            background:
+              "radial-gradient(140% 120% at 50% 100%, color-mix(in oklch, var(--accent) 16%, transparent) 0%, color-mix(in oklch, var(--chart-2) 12%, transparent) 38%, color-mix(in oklch, var(--chart-3) 10%, transparent) 62%, rgba(0,0,0,0) 100%)",
+          }}
+        />
+      </div>
+
       {/* Navigation */}
       <header className="relative z-20 border-b border-border/30">
         <nav className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-6 flex items-center justify-between">
