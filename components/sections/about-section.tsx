@@ -7,8 +7,18 @@ export function AboutSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
   return (
-    <section ref={ref} className="w-full bg-background px-6 py-32 sm:px-8 lg:px-12">
-      <div className="mx-auto max-w-6xl">
+    <section ref={ref} className="relative w-full bg-background px-6 py-32 sm:px-8 lg:px-12">
+      {/* Soft brand wash to prevent the section from feeling too dark */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-56 sm:h-72"
+        style={{
+          background:
+            'linear-gradient(180deg, color-mix(in oklch, var(--accent) 26%, transparent) 0%, color-mix(in oklch, var(--chart-3) 16%, transparent) 45%, rgba(0,0,0,0) 100%)',
+        }}
+      />
+
+      <div className="mx-auto max-w-6xl relative">
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
