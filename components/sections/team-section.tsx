@@ -43,7 +43,7 @@ export function TeamSection() {
         </motion.h2>
 
         {/* Staggered grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
           {team.map((member, index) => (
             <motion.div
               key={index}
@@ -55,26 +55,21 @@ export function TeamSection() {
                 ease: 'easeOut',
               }}
               className="group"
-              style={{ marginTop: index % 2 === 1 ? '3rem' : '0' }}
+              style={{ marginTop: 0 }}
             >
-              <div className="relative overflow-hidden mb-6">
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.6, ease: 'easeOut' }}
-                >
+              <div className="relative overflow-hidden mb-4 rounded-lg">
+                <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.6, ease: 'easeOut' }}>
                   <Image
                     src={member.image || '/placeholder.svg'}
                     alt={member.name}
-                    width={500}
-                    height={600}
-                    className="w-full aspect-[4/5] object-cover"
+                    width={420}
+                    height={520}
+                    className="w-full aspect-[3/4] object-cover"
                   />
                 </motion.div>
               </div>
               <div className="space-y-1">
-                <h3 className="text-lg sm:text-xl font-medium text-foreground">
-                  {member.name}
-                </h3>
+                <h3 className="text-base sm:text-lg font-medium text-foreground">{member.name}</h3>
                 <p className="text-sm text-muted-foreground">{member.role}</p>
               </div>
             </motion.div>
