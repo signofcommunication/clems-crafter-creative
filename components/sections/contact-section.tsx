@@ -57,12 +57,20 @@ export function ContactSection() {
               <p className="text-sm uppercase tracking-wide text-muted-foreground mb-2">
                 Email
               </p>
-              <a
-                href="mailto:hello@clemscrafter.com"
-                className="text-lg text-foreground hover:text-accent transition-colors duration-300"
-              >
-                hello@clemscrafter.com
-              </a>
+              <div className="space-y-2">
+                <a
+                  href="mailto:anjidananto@clemsgraftercreative.com"
+                  className="block text-lg text-foreground hover:text-accent transition-colors duration-300"
+                >
+                  anjidananto@clemsgraftercreative.com
+                </a>
+                <a
+                  href="mailto:haryantilosiana@clemsgraftercreative.com"
+                  className="block text-lg text-foreground hover:text-accent transition-colors duration-300"
+                >
+                  haryantilosiana@clemsgraftercreative.com
+                </a>
+              </div>
             </div>
 
             <div>
@@ -73,7 +81,7 @@ export function ContactSection() {
                 href="tel:+1234567890"
                 className="text-lg text-foreground hover:text-accent transition-colors duration-300"
               >
-                +1 (555) 123-4567
+                +62 (888) 1513-797
               </a>
             </div>
 

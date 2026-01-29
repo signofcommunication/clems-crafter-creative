@@ -1,29 +1,34 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import Image from 'next/image';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 
 const team = [
   {
-    name: 'Clara Mendez',
-    role: 'Creative Director',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=600&fit=crop',
+    name: "Trianji Agus Dananto",
+    role: "CEO",
+    image: "/teams/pa anji.jpg",
   },
   {
-    name: 'Adrian Sterling',
-    role: 'Lead Engineer',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop',
+    name: "Haryanti Losiana",
+    role: "COO",
+    image: "/teams/bu yanti.png",
   },
   {
-    name: 'Sophia Chen',
-    role: 'Design Lead',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=600&fit=crop',
+    name: "Ari Putra Frederick Leluly",
+    role: "Fullstack Developer",
+    image: "/teams/ari.jpg",
   },
   {
-    name: 'Marcus Thompson',
-    role: 'Backend Specialist',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=600&fit=crop',
+    name: "Jeriko Ichtus Seo",
+    role: "Fullstack Developer",
+    image: "/teams/REL08131.JPG",
+  },
+  {
+    name: "Otniel Adyuta",
+    role: "UI/UX Designer",
+    image: "/teams/otniel.jpeg",
   },
 ];
 
@@ -36,7 +41,7 @@ export function TeamSection() {
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
           className="text-6xl sm:text-7xl font-light text-foreground mb-20"
         >
           Meet the team
@@ -52,15 +57,18 @@ export function TeamSection() {
               transition={{
                 duration: 0.8,
                 delay: index * 0.12,
-                ease: 'easeOut',
+                ease: "easeOut",
               }}
               className="group"
               style={{ marginTop: 0 }}
             >
               <div className="relative overflow-hidden mb-4 rounded-lg">
-                <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.6, ease: 'easeOut' }}>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
                   <Image
-                    src={member.image || '/placeholder.svg'}
+                    src={member.image || "/placeholder.svg"}
                     alt={member.name}
                     width={420}
                     height={520}
@@ -69,7 +77,9 @@ export function TeamSection() {
                 </motion.div>
               </div>
               <div className="space-y-1">
-                <h3 className="text-base sm:text-lg font-medium text-foreground">{member.name}</h3>
+                <h3 className="text-base sm:text-lg font-medium text-foreground">
+                  {member.name}
+                </h3>
                 <p className="text-sm text-muted-foreground">{member.role}</p>
               </div>
             </motion.div>

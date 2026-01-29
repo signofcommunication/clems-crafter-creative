@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./button";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 
 const TextRevealLine = ({
@@ -32,44 +32,50 @@ const TextRevealLine = ({
   );
 };
 
-// Layer 2: Background gradient animation
+// Layer 2: Background video + gradient overlay
 const BackgroundGradient = () => {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {/* Base gradient */}
+      {/* Video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
+      >
+        <source src="/CGC Video Motion.mp4" type="video/mp4" />
+      </video>
+
+      {/* Gradient overlay to blend video with design */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-background via-blue-950/30 to-background"
-        initial={{ opacity: 0.2 }}
-        animate={{ opacity: 0.4 }}
+        className="absolute inset-0 bg-gradient-to-br from-background/80 via-blue-700/50 to-background/80"
+        initial={{ opacity: 0.4 }}
+        animate={{ opacity: 0.75 }}
         transition={{ duration: 4, ease: "easeInOut" }}
       />
 
-      {/* Teal glow - moves slowly (parallax effect) */}
+      {/* Wave-like glow that "washes in" like ocean wave (one-time, slow) */}
       <motion.div
-        className="absolute -top-1/3 -right-1/3 w-full h-full rounded-full bg-accent/8 blur-3xl"
-        animate={{
-          x: [0, 40, 0],
-          y: [0, -30, 0],
-        }}
+        className="absolute -top-1/3 -right-1/3 w-full h-full rounded-full bg-accent/10 blur-3xl"
+        initial={{ x: -200, y: 100, opacity: 0 }}
+        animate={{ x: 0, y: 0, opacity: 1 }}
         transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
+          duration: 3.5,
+          ease: [0.16, 1, 0.3, 1], // smooth wave-like easing
+          delay: 0.5,
         }}
       />
 
-      {/* Secondary glow */}
+      {/* Secondary glow (subtle, one-time) */}
       <motion.div
-        className="absolute -bottom-1/4 -left-1/4 w-96 h-96 rounded-full bg-accent/5 blur-3xl"
-        animate={{
-          x: [0, -40, 0],
-          y: [0, 40, 0],
-        }}
+        className="absolute -bottom-1/4 -left-1/4 w-96 h-96 rounded-full bg-accent/6 blur-3xl"
+        initial={{ x: 150, y: -80, opacity: 0 }}
+        animate={{ x: 0, y: 0, opacity: 1 }}
         transition={{
-          duration: 14,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1,
+          duration: 4,
+          ease: [0.16, 1, 0.3, 1],
+          delay: 1.2,
         }}
       />
     </div>
@@ -78,12 +84,20 @@ const BackgroundGradient = () => {
 
 export function HeroSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-background pt-20">
+    <section className="relative min-h-screen w-full overflow-hidden bg-background pt-24 sm:pt-28">
       {/* Layer 2: Background animation */}
       <BackgroundGradient />
-
       {/* Curved bridge to next section (softens the hard line) */}
       <div
         aria-hidden="true"
@@ -96,17 +110,27 @@ export function HeroSection() {
               "radial-gradient(140% 120% at 50% 100%, color-mix(in oklch, var(--accent) 16%, transparent) 0%, color-mix(in oklch, var(--chart-2) 12%, transparent) 38%, color-mix(in oklch, var(--chart-3) 10%, transparent) 62%, rgba(0,0,0,0) 100%)",
           }}
         />
-      </div>
-
+      </div>{" "}
       {/* Navigation */}
-      <header className="relative z-20 border-b border-border/30">
-        <nav className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-6 flex items-center justify-between">
+      <header
+        className={`fixed top-0 inset-x-0 z-20 transition-all duration-300 ${
+          isScrolled
+            ? "bg-background/80 backdrop-blur-md border-b border-border/50 shadow-sm"
+            : "border-b border-border/30"
+        }`}
+      >
+        <nav
+          className={`mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 flex items-center justify-between transition-all duration-300 ${
+            isScrolled ? "py-3" : "py-4"
+          }`}
+        >
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-lg font-light tracking-wide text-foreground"
           >
+            {" "}
             <Link
               href="#"
               className="inline-flex items-center"
@@ -118,7 +142,9 @@ export function HeroSection() {
                 width={180}
                 height={48}
                 priority
-                className="h-40 w-auto"
+                className={`w-auto transition-all duration-300 ${
+                  isScrolled ? "h-30 sm:h-30" : "h-40 sm:h-40"
+                }`}
               />
             </Link>
           </motion.div>
@@ -197,7 +223,6 @@ export function HeroSection() {
           </motion.div>
         )}
       </header>
-
       {/* Hero content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-32 sm:py-40 lg:py-48">
         {/* Layer 1: Text animation */}
@@ -235,7 +260,6 @@ export function HeroSection() {
             </p>
           </TextRevealLine>
         </div>
-
         {/* CTA Section */}
         <TextRevealLine delay={1.1}>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
@@ -274,30 +298,72 @@ export function HeroSection() {
               </span>
             </motion.a>
           </div>
-        </TextRevealLine>
-
-        {/* Scroll indicator */}
+        </TextRevealLine>{" "}
+        {/* Client marquee - bottom left */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-8 left-6 sm:left-8 lg:left-12 z-10 max-w-2xl"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
         >
-          <div className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
-            Scroll
-          </div>
-          <svg
-            className="w-5 h-5 text-muted-foreground"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
+            Trusted by:
+          </p>
+          <div className="relative overflow-hidden">
+            {/* Blur fade on right edge */}
+            <div
+              className="absolute right-0 top-0 bottom-0 w-16 backdrop-blur-sm z-10 pointer-events-none"
+              style={{
+                maskImage: "linear-gradient(to left, black, transparent)",
+                WebkitMaskImage: "linear-gradient(to left, black, transparent)",
+              }}
             />
-          </svg>
+
+            <div className="flex overflow-hidden">
+              <motion.div
+                className="flex gap-6 items-center"
+                animate={{
+                  x: [0, -100 * 8],
+                }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 25,
+                    ease: "linear",
+                  },
+                }}
+              >
+                {[
+                  { name: "Allianz", logo: "/brands/allianz-2.svg" },
+                  { name: "BCA", logo: "/brands/bca-bank-central-asia.svg" },
+                  { name: "CAT", logo: "/brands/cat-1.svg" },
+                  { name: "Pertamina", logo: "/brands/pertamina-logo-1.svg" },
+                  { name: "Swim Plannr", logo: "/brands/swim plannr.png" },
+                  { name: "Telecats", logo: "/brands/telecats.png" },
+                  { name: "Toyota", logo: "/brands/toyota-1.svg" },
+                  { name: "Trengo", logo: "/brands/trengo.png" },
+                  { name: "Allianz", logo: "/brands/allianz-2.svg" },
+                  { name: "BCA", logo: "/brands/bca-bank-central-asia.svg" },
+                  { name: "CAT", logo: "/brands/cat-1.svg" },
+                  { name: "Pertamina", logo: "/brands/pertamina-logo-1.svg" },
+                ].map((client, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 px-3 py-2 rounded-md bg-white dark:bg-slate-100"
+                  >
+                    <Image
+                      src={client.logo}
+                      alt={client.name}
+                      width={80}
+                      height={40}
+                      className="w-auto h-6 object-contain opacity-70"
+                    />
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
