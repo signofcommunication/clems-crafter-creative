@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
+import { Instagram, Linkedin } from "lucide-react";
 
 export function FooterSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
@@ -18,17 +19,39 @@ export function FooterSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16"
+          className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-8 mb-16"
         >
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-4 md:col-span-2">
             <h3 className="text-lg font-light text-foreground">
-              Clems Crafter
+              Clems Grafter Creative
             </h3>
             <p className="text-sm text-foreground/60 leading-relaxed max-w-xs">
               Digital experiences crafted with clarity and purpose. Building the
               future, one design at a time.
             </p>
+
+            {/* Social Media */}
+            <div className="flex gap-4 pt-4">
+              <a
+                href="https://www.instagram.com/clemsgraftercreative/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground/60 hover:text-accent transition-colors duration-300"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/clems-grafter-creative"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground/60 hover:text-accent transition-colors duration-300"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
           </div>
 
           {/* Navigation */}
@@ -104,7 +127,10 @@ export function FooterSection() {
                   +62 (888) 1513-797
                 </a>
               </li>
-              <li className="text-sm text-foreground/60">Jakarta, Indonesia</li>
+              <li className="text-sm text-foreground/60 leading-relaxed">
+                Jl. H. Juhri, RT.8/RW.2, Meruya Sel., Kec. Kembangan, Jakarta
+                Barat 11650
+              </li>
             </ul>
           </div>
         </motion.div>
@@ -124,7 +150,7 @@ export function FooterSection() {
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-foreground/50"
         >
-          <p>© {currentYear} Clems Crafter Creative. All rights reserved.</p>
+          <p>© {currentYear} Clems Grafter Creative. All rights reserved.</p>
           <div className="flex gap-6">
             <a
               href="#"

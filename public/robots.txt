@@ -1,0 +1,21 @@
+# robots.txt for Clems Grafter Creative
+# https://clemsgraftercreative.com/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/static/
+Disallow: /*.json$
+
+# Sitemaps
+Sitemap: https://clemsgraftercreative.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 0
+
+# Block specific bad bots (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10

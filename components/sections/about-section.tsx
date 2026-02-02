@@ -5,9 +5,9 @@ import { useInView } from "react-intersection-observer";
 
 export function AboutSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
-
   return (
     <section
+      id="about"
       ref={ref}
       className="relative w-full bg-background px-6 py-32 sm:px-8 lg:px-12"
     >

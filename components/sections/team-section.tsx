@@ -8,12 +8,12 @@ const team = [
   {
     name: "Trianji Agus Dananto",
     role: "CEO",
-    image: "/teams/pa anji.jpg",
+    image: "/teams/pa anji.jpeg",
   },
   {
     name: "Haryanti Losiana",
     role: "COO",
-    image: "/teams/bu yanti.png",
+    image: "/teams/bu yanti.jpeg",
   },
   {
     name: "Ari Putra Frederick Leluly",
@@ -23,12 +23,17 @@ const team = [
   {
     name: "Jeriko Ichtus Seo",
     role: "Fullstack Developer",
-    image: "/teams/REL08131.JPG",
+    image: "/teams/jeriko.png",
   },
   {
     name: "Otniel Adyuta",
     role: "UI/UX Designer",
     image: "/teams/otniel.jpeg",
+  },
+  {
+    name: "Yusrin",
+    role: "QA Specialist",
+    image: "/teams/yusrin.jpeg",
   },
 ];
 
@@ -36,7 +41,11 @@ export function TeamSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
 
   return (
-    <section ref={ref} className="w-full bg-muted px-6 py-32 sm:px-8 lg:px-12">
+    <section
+      id="team"
+      ref={ref}
+      className="w-full bg-muted px-6 py-32 sm:px-8 lg:px-12"
+    >
       <div className="mx-auto max-w-7xl">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}

@@ -134,11 +134,11 @@ export function HeroSection() {
             <Link
               href="#"
               className="inline-flex items-center"
-              aria-label="Clems Crafter Creative"
+              aria-label="Clems Grafter Creative"
             >
               <Image
                 src="/CGC Logo.png"
-                alt="Clems Crafter Creative"
+                alt="Clems Grafter Creative"
                 width={180}
                 height={48}
                 priority
@@ -147,40 +147,38 @@ export function HeroSection() {
                 }`}
               />
             </Link>
-          </motion.div>
-
+          </motion.div>{" "}
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-12">
             <a
               href="#about"
-              className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+              className="text-lg text-gray-200 hover:text-white transition-colors"
             >
               About
             </a>
             <a
               href="#services"
-              className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+              className="text-lg text-gray-200 hover:text-white transition-colors"
             >
               Services
             </a>
             <a
               href="#team"
-              className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+              className="text-lg text-gray-200 hover:text-white transition-colors"
             >
               Team
             </a>
             <a
               href="#contact"
-              className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+              className="text-lg text-gray-200 hover:text-white transition-colors"
             >
               Contact
             </a>
           </div>
-
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-foreground z-30"
+            className="md:hidden text-white z-30"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -194,28 +192,29 @@ export function HeroSection() {
             transition={{ duration: 0.3 }}
             className="md:hidden border-t border-border/30 bg-background/80 backdrop-blur-sm"
           >
+            {" "}
             <div className="px-6 py-4 space-y-4">
               <a
                 href="#about"
-                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="block text-sm text-gray-200 hover:text-white transition-colors"
               >
                 About
               </a>
               <a
                 href="#services"
-                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="block text-sm text-gray-200 hover:text-white transition-colors"
               >
                 Services
               </a>
               <a
                 href="#team"
-                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="block text-sm text-gray-200 hover:text-white transition-colors"
               >
                 Team
               </a>
               <a
                 href="#contact"
-                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="block text-sm text-gray-200 hover:text-white transition-colors"
               >
                 Contact
               </a>
@@ -225,65 +224,128 @@ export function HeroSection() {
       </header>
       {/* Hero content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-32 sm:py-40 lg:py-48">
+        {" "}
         {/* Layer 1: Text animation */}
         <div className="max-w-4xl space-y-6 mb-16">
           <div className="space-y-1">
             <TextRevealLine delay={0.1}>
-              <span className="text-6xl sm:text-7xl lg:text-8xl font-light text-foreground tracking-tight">
-                Clems Crafter
+              <span className="text-6xl sm:text-7xl lg:text-8xl font-light text-white tracking-tight drop-shadow-lg">
+                Clems Grafter
               </span>
             </TextRevealLine>
             <TextRevealLine delay={0.3}>
-              <span className="text-6xl sm:text-7xl lg:text-8xl font-light text-foreground tracking-tight">
+              <span className="text-6xl sm:text-7xl lg:text-8xl font-light text-white tracking-tight drop-shadow-lg">
                 Creative
               </span>
             </TextRevealLine>
             <TextRevealLine delay={0.5}>
               <span className="text-6xl sm:text-7xl lg:text-8xl font-light">
-                <span className="text-foreground tracking-tight">
+                <span className="text-white tracking-tight drop-shadow-lg">
                   Crafting digital experiences
                 </span>
               </span>
             </TextRevealLine>
             <TextRevealLine delay={0.7}>
               <span className="text-6xl sm:text-7xl lg:text-8xl font-light tracking-tight">
-                with <span className="text-accent">clarity</span> and purpose.
+                with{" "}
+                <span className="text-accent drop-shadow-[0_0_20px_rgba(0,123,223,0.5)]">
+                  clarity
+                </span>{" "}
+                and <span className="text-white drop-shadow-lg">purpose.</span>
               </span>
             </TextRevealLine>
           </div>
 
           {/* Subtitle */}
           <TextRevealLine delay={0.9}>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-lg pt-8">
+            <p className="text-base sm:text-lg text-gray-200 max-w-lg pt-8 drop-shadow-md">
               We create intentional digital products that resonate. Strategic,
               precise, and built to last.
             </p>
           </TextRevealLine>
-        </div>
+        </div>{" "}
         {/* CTA Section */}
         <TextRevealLine delay={1.1}>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
             <motion.div
+              className="relative group"
               whileHover={{ x: 4 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
+              {/* Glow effect on hover */}
+              <motion.div
+                className="absolute -inset-1 bg-gradient-to-r from-accent via-chart-3 to-accent rounded-lg opacity-0 group-hover:opacity-30 blur-lg transition-opacity duration-500"
+                initial={{ opacity: 0 }}
+              />
+
+              {/* Animated particles/sparks on hover */}
+              <motion.div
+                className="absolute inset-0 pointer-events-none"
+                initial={{ opacity: 0 }}
+              >
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-accent rounded-full"
+                    style={{
+                      top: "50%",
+                      left: "50%",
+                    }}
+                    initial={{ scale: 0, x: 0, y: 0, opacity: 0 }}
+                    whileHover={{
+                      scale: [0, 1, 0],
+                      x: [0, Math.cos((i * Math.PI * 2) / 6) * 40],
+                      y: [0, Math.sin((i * Math.PI * 2) / 6) * 40],
+                      opacity: [0, 1, 0],
+                      transition: {
+                        duration: 0.6,
+                        delay: i * 0.05,
+                        ease: "easeOut",
+                      },
+                    }}
+                  />
+                ))}
+              </motion.div>
+
               <Button
                 asChild
-                className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-3 text-sm uppercase tracking-wide transition-all duration-300"
+                className="relative bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-3 text-sm uppercase tracking-wide transition-all duration-300 overflow-hidden"
               >
                 <Link
                   href="#contact"
                   className="inline-flex items-center gap-2"
                 >
-                  Start a Project <ArrowRight className="h-4 w-4" />
+                  {/* Shimmer effect */}
+                  <motion.div
+                    className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
+                    }}
+                  />
+
+                  <span className="relative z-10">Start a Project</span>
+
+                  {/* Arrow with bounce animation */}
+                  <motion.div
+                    animate={{
+                      x: [0, 4, 0],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <ArrowRight className="h-4 w-4 relative z-10" />
+                  </motion.div>
                 </Link>
               </Button>
-            </motion.div>
-
+            </motion.div>{" "}
             {/* Layer 3: Micro interaction - underline on link */}
             <motion.a
               href="#about"
-              className="text-sm uppercase tracking-wide text-muted-foreground hover:text-foreground transition-colors relative inline-flex items-center gap-2"
+              className="text-sm uppercase tracking-wide text-gray-300 hover:text-white transition-colors relative inline-flex items-center gap-2"
               whileHover={{ x: 4 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
@@ -306,7 +368,7 @@ export function HeroSection() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
         >
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
+          <p className="text-xs uppercase tracking-widest text-gray-300 mb-3 drop-shadow-md">
             Trusted by:
           </p>
           <div className="relative overflow-hidden">

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import { Button } from "../ui/button";
-import { Send } from "lucide-react";
+import { Send, Instagram, Linkedin } from "lucide-react";
 
 export function ContactSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -31,7 +31,11 @@ export function ContactSection() {
   };
 
   return (
-    <section ref={ref} className="w-full bg-muted px-6 py-32 sm:px-8 lg:px-12">
+    <section
+      id="contact"
+      ref={ref}
+      className="w-full bg-muted px-6 py-32 sm:px-8 lg:px-12"
+    >
       <div className="mx-auto max-w-5xl">
         {/* Headline */}
         <motion.div
@@ -89,7 +93,36 @@ export function ContactSection() {
               <p className="text-sm uppercase tracking-wide text-muted-foreground mb-2">
                 Location
               </p>
-              <p className="text-lg text-foreground">Jakarta, Indonesia</p>
+              <p className="text-lg text-foreground leading-relaxed max-w-sm">
+                Jl. H. Juhri, RT.8/RW.2, Meruya Sel., Kec. Kembangan, Jakarta
+                Barat 11650
+              </p>
+            </div>
+
+            <div>
+              <p className="text-sm uppercase tracking-wide text-muted-foreground mb-2">
+                Follow Us
+              </p>
+              <div className="flex gap-4">
+                <a
+                  href="https://www.instagram.com/clemsgraftercreative/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-lg text-foreground hover:text-accent transition-colors duration-300"
+                >
+                  <Instagram className="w-5 h-5" />
+                  <span>Instagram</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/clems-grafter-creative"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-lg text-foreground hover:text-accent transition-colors duration-300"
+                >
+                  <Linkedin className="w-5 h-5" />
+                  <span>LinkedIn</span>
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -158,13 +191,70 @@ export function ContactSection() {
               />
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 relative group">
+              {/* Glow effect on hover */}
+              <motion.div
+                className="absolute -inset-1 bg-gradient-to-r from-accent via-chart-3 to-accent rounded-lg opacity-0 group-hover:opacity-25 blur-lg transition-opacity duration-500"
+                initial={{ opacity: 0 }}
+              />
+
+              {/* Animated particles on hover */}
+              <motion.div
+                className="absolute inset-0 pointer-events-none"
+                initial={{ opacity: 0 }}
+              >
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-accent rounded-full"
+                    style={{
+                      top: "50%",
+                      left: "50%",
+                    }}
+                    initial={{ scale: 0, x: 0, y: 0, opacity: 0 }}
+                    whileHover={{
+                      scale: [0, 1, 0],
+                      x: [0, Math.cos((i * Math.PI * 2) / 6) * 40],
+                      y: [0, Math.sin((i * Math.PI * 2) / 6) * 40],
+                      opacity: [0, 1, 0],
+                      transition: {
+                        duration: 0.6,
+                        delay: i * 0.05,
+                        ease: "easeOut",
+                      },
+                    }}
+                  />
+                ))}
+              </motion.div>
+
               <Button
                 type="submit"
-                className="bg-foreground text-background hover:bg-accent hover:text-muted px-8 py-3 text-sm uppercase tracking-wide transition-all duration-300"
+                className="relative bg-foreground text-background hover:bg-accent hover:text-muted px-8 py-3 text-sm uppercase tracking-wide transition-all duration-300 overflow-hidden"
               >
-                <span className="inline-flex items-center gap-2">
-                  Send Message <Send className="h-4 w-4" />
+                {/* Shimmer effect */}
+                <motion.div
+                  className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
+                  }}
+                />
+
+                <span className="relative z-10 inline-flex items-center gap-2">
+                  Send Message
+                  {/* Icon with pulse animation */}
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.2, 1],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Send className="h-4 w-4" />
+                  </motion.div>
                 </span>
               </Button>
             </div>
