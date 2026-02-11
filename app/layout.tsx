@@ -85,7 +85,8 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },  icons: {
+  },
+  icons: {
     icon: [
       {
         url: "/favicon.ico",
@@ -128,7 +129,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${geist.variable} ${geistMono.variable}`}>
+    <html
+      lang="id"
+      className={`${geist.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         {/* Preconnect to external resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -144,7 +149,7 @@ export default function RootLayout({
         <meta name="geo.position" content="-6.175110;106.865036" />
         <meta name="ICBM" content="-6.175110, 106.865036" />
       </head>
-      <body className={`font-sans antialiased`}>
+      <body className={`font-sans antialiased`} suppressHydrationWarning>
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
         <Analytics />
       </body>
