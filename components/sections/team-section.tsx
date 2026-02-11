@@ -31,7 +31,7 @@ const team = [
     image: "/teams/otniel.jpeg",
   },
   {
-    name: "Yusrin",
+    name: "Muh. Yusrin",
     role: "QA Specialist",
     image: "/teams/yusrin.jpeg",
   },
