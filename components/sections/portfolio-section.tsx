@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 
 const clients = [
+  { name: "Sumitomo Forestry Indonesia", logo: "/brands/sfi.png" },
   { name: "Allianz", logo: "/brands/allianz-2.svg" },
   { name: "BCA", logo: "/brands/bca-bank-central-asia.svg" },
   { name: "CAT", logo: "/brands/cat-1.svg" },

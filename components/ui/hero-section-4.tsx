@@ -401,6 +401,10 @@ export function HeroSection() {
                   { name: "BCA", logo: "/brands/bca-bank-central-asia.svg" },
                   { name: "CAT", logo: "/brands/cat-1.svg" },
                   { name: "Pertamina", logo: "/brands/pertamina-logo-1.svg" },
+                  {
+                    name: "Sumitomo Forestry Indonesia",
+                    logo: "/brands/sfi.png",
+                  },
                   { name: "Swim Plannr", logo: "/brands/swim plannr.png" },
                   { name: "Telecats", logo: "/brands/telecats.png" },
                   { name: "Toyota", logo: "/brands/toyota-1.svg" },
@@ -409,6 +413,10 @@ export function HeroSection() {
                   { name: "BCA", logo: "/brands/bca-bank-central-asia.svg" },
                   { name: "CAT", logo: "/brands/cat-1.svg" },
                   { name: "Pertamina", logo: "/brands/pertamina-logo-1.svg" },
+                  {
+                    name: "Sumitomo Forestry Indonesia",
+                    logo: "/brands/sfi.png",
+                  },
                 ].map((client, index) => (
                   <div
                     key={index}
