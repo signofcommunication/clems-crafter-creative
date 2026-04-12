@@ -16,9 +16,19 @@ const team = [
     image: "/teams/bu yanti.jpeg",
   },
   {
+    name: "M Jundi Hakim",
+    role: "Project Manager",
+    image: "/teams/jundi.png",
+  },
+  {
+    name: "Muhammad Fikri Hatim",
+    role: "Dev Lead",
+    image: "/teams/fikri.jpeg",
+  },
+  {
     name: "Ari Putra Frederick Leluly",
     role: "Fullstack Developer",
-    image: "/teams/ari.jpg",
+    image: "/teams/ari.png",
   },
   {
     name: "Jeriko Ichtus Seo",
