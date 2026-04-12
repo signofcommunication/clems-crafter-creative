@@ -26,6 +26,11 @@ const team = [
     image: "/teams/fikri.jpeg",
   },
   {
+    name: "Edi Prasetiyo",
+    role: "Business Analyst",
+    image: "/teams/edi.jpeg",
+  },
+  {
     name: "Ari Putra Frederick Leluly",
     role: "Fullstack Developer",
     image: "/teams/ari.png",
@@ -34,6 +39,11 @@ const team = [
     name: "Jeriko Ichtus Seo",
     role: "Fullstack Developer",
     image: "/teams/jeriko.png",
+  },
+  {
+    name: "Jedidiah Faith Gracio",
+    role: "Fullstack Developer",
+    image: "/teams/jedi.png",
   },
   {
     name: "Otniel Adyuta",
