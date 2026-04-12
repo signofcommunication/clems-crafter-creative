@@ -41,11 +41,6 @@ const team = [
     image: "/teams/jeriko.png",
   },
   {
-    name: "Jedidiah Faith Gracio",
-    role: "Fullstack Developer",
-    image: "/teams/jedi.png",
-  },
-  {
     name: "Otniel Adyuta",
     role: "UI/UX Designer",
     image: "/teams/otniel.jpeg",
@@ -54,6 +49,11 @@ const team = [
     name: "Muh. Yusrin",
     role: "QA Specialist",
     image: "/teams/yusrin.jpeg",
+  },
+  {
+    name: "Jedidiah Faith Gracio",
+    role: "Fullstack Developer",
+    image: "/teams/jedi.png",
   },
 ];
 
