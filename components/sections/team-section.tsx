@@ -41,19 +41,14 @@ const team = [
     image: "/teams/jeriko.png",
   },
   {
-    name: "Otniel Adyuta",
-    role: "UI/UX Designer",
-    image: "/teams/otniel.jpeg",
+    name: "Muhammad Zaki Algifari",
+    role: "AI Engineer",
+    image: "/teams/zaki.jpeg",
   },
   {
-    name: "Muh. Yusrin",
-    role: "QA Specialist",
-    image: "/teams/yusrin.jpeg",
-  },
-  {
-    name: "Jedidiah Faith Gracio",
-    role: "Fullstack Developer",
-    image: "/teams/jedi.png",
+    name: "Muhammad Maula Albi Badalawa",
+    role: "Research and Development",
+    image: "/teams/albi.jpeg",
   },
 ];
 
