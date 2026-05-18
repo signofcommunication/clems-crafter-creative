@@ -16,19 +16,9 @@ const team = [
     image: "/teams/bu yanti.jpeg",
   },
   {
-    name: "M Jundi Hakim",
-    role: "Project Manager",
-    image: "/teams/jundi.png",
-  },
-  {
     name: "Muhammad Fikri Hatim",
     role: "Dev Lead",
     image: "/teams/fikri.jpeg",
-  },
-  {
-    name: "Edi Prasetiyo",
-    role: "Business Analyst",
-    image: "/teams/edi.jpeg",
   },
   {
     name: "Ari Putra Frederick Leluly",
