@@ -113,16 +113,14 @@ export function HeroSection() {
       </div>{" "}
       {/* Navigation */}
       <header
-        className={`fixed top-0 inset-x-0 z-20 transition-all duration-300 ${
-          isScrolled
-            ? "bg-background/80 backdrop-blur-md border-b border-border/50 shadow-sm"
-            : "border-b border-border/30"
-        }`}
+        className={`fixed top-0 inset-x-0 z-20 transition-all duration-300 ${isScrolled
+          ? "bg-background/80 backdrop-blur-md border-b border-border/50 shadow-sm"
+          : "border-b border-border/30"
+          }`}
       >
         <nav
-          className={`mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 flex items-center justify-between transition-all duration-300 ${
-            isScrolled ? "py-3" : "py-4"
-          }`}
+          className={`mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 flex items-center justify-between transition-all duration-300 ${isScrolled ? "py-3" : "py-4"
+            }`}
         >
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -142,9 +140,8 @@ export function HeroSection() {
                 width={180}
                 height={48}
                 priority
-                className={`w-auto transition-all duration-300 ${
-                  isScrolled ? "h-30 sm:h-30" : "h-40 sm:h-40"
-                }`}
+                className={`w-auto transition-all duration-300 ${isScrolled ? "h-30 sm:h-30" : "h-40 sm:h-40"
+                  }`}
               />
             </Link>
           </motion.div>{" "}
@@ -229,24 +226,19 @@ export function HeroSection() {
         <div className="max-w-4xl space-y-6 mb-16">
           <div className="space-y-1">
             <TextRevealLine delay={0.1}>
-              <span className="text-6xl sm:text-7xl lg:text-8xl font-light text-white tracking-tight drop-shadow-lg">
-                Clems Grafter
-              </span>
-            </TextRevealLine>
-            <TextRevealLine delay={0.3}>
-              <span className="text-6xl sm:text-7xl lg:text-8xl font-light text-white tracking-tight drop-shadow-lg">
-                Creative
+              <span className="text-5xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight drop-shadow-lg">
+                Clems Grafter Creative
               </span>
             </TextRevealLine>
             <TextRevealLine delay={0.5}>
-              <span className="text-6xl sm:text-7xl lg:text-8xl font-light">
+              <span className="text-5xl sm:text-6xl lg:text-7xl font-light">
                 <span className="text-white tracking-tight drop-shadow-lg">
                   Crafting digital experiences
                 </span>
               </span>
             </TextRevealLine>
             <TextRevealLine delay={0.7}>
-              <span className="text-6xl sm:text-7xl lg:text-8xl font-light tracking-tight">
+              <span className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
                 with{" "}
                 <span className="text-accent drop-shadow-[0_0_20px_rgba(0,123,223,0.5)]">
                   clarity

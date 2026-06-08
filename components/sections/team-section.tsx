@@ -22,12 +22,12 @@ const team = [
   },
   {
     name: "Ari Putra Frederick Leluly",
-    role: "Fullstack Developer",
+    role: "Fullstack Engineer",
     image: "/teams/ari.png",
   },
   {
     name: "Jeriko Ichtus Seo",
-    role: "Fullstack Developer",
+    role: "Fullstack Engineer",
     image: "/teams/jeriko.png",
   },
   {
@@ -38,7 +38,22 @@ const team = [
   {
     name: "Muhammad Maula Albi Badalawa",
     role: "Research and Development",
-    image: "/teams/albi.jpeg",
+    image: "/teams/albi.png",
+  },
+  {
+    name: "Nico Abel Laia",
+    role: "Frontend Engineer",
+    image: "/teams/nico.png",
+  },
+  {
+    name: "Raffa Danendra Pramono",
+    role: "QA Engineer",
+    image: "/teams/raffa.jpeg",
+  },
+  {
+    name: "Agusta Heryanti",
+    role: "Sales",
+    image: "/teams/anti.jpeg",
   },
 ];
 
@@ -94,7 +109,7 @@ export function TeamSection() {
                 <h3 className="text-base sm:text-lg font-medium text-foreground">
                   {member.name}
                 </h3>
-                <p className="text-sm text-muted-foreground">{member.role}</p>
+                <p className="text-sm">{member.role}</p>
               </div>
             </motion.div>
           ))}
