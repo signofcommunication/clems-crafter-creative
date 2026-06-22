@@ -55,6 +55,11 @@ const team = [
     role: "Sales",
     image: "/teams/anti.jpeg",
   },
+  {
+    name: "Andre Fahmi",
+    role: "HR GA",
+    image: "/teams/andre.jpeg",
+  },
 ];
 
 export function TeamSection() {
