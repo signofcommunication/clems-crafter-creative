@@ -89,8 +89,8 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon.ico",
-        sizes: "16x16 32x32",
+        url: "/CGC%20Logo.ico",
+        sizes: "16x16 32x32 48x48",
         type: "image/x-icon",
       },
       {
@@ -110,7 +110,7 @@ export const metadata: Metadata = {
         type: "image/png",
       },
     ],
-    shortcut: "/favicon.ico",
+    shortcut: "/CGC%20Logo.ico",
   },
   verification: {
     google: "your-google-verification-code", // Add your Google Search Console verification
