@@ -16,14 +16,14 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: "portrait-primary",
     icons: [
       {
-        src: "/CGC Logo.png",
+        src: "/favicon-192.png",
         sizes: "192x192",
         type: "image/png",
         purpose: "maskable",
       },
       {
-        src: "/CGC Logo.png",
-        sizes: "512x512",
+        src: "/favicon-192.png",
+        sizes: "192x192",
         type: "image/png",
         purpose: "any",
       },
