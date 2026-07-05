@@ -89,24 +89,14 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon-192.png",
+        url: "https://clemsgraftercreative.com/cgc-site-icon-192.png",
         sizes: "192x192",
         type: "image/png",
       },
       {
-        url: "/favicon-96.png",
-        sizes: "96x96",
-        type: "image/png",
-      },
-      {
-        url: "/favicon-48.png",
+        url: "https://clemsgraftercreative.com/cgc-site-icon-48.png",
         sizes: "48x48",
         type: "image/png",
-      },
-      {
-        url: "/favicon.ico",
-        sizes: "48x48",
-        type: "image/x-icon",
       },
     ],
     apple: [
@@ -116,7 +106,7 @@ export const metadata: Metadata = {
         type: "image/png",
       },
     ],
-    shortcut: "/favicon.ico",
+    shortcut: "https://clemsgraftercreative.com/cgc-site-icon-192.png",
   },
   verification: {
     google: "your-google-verification-code", // Add your Google Search Console verification
@@ -141,6 +131,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <link
+          rel="icon"
+          href="https://clemsgraftercreative.com/cgc-site-icon-192.png"
+          type="image/png"
+          sizes="192x192"
+        />
         {/* Preconnect to external resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

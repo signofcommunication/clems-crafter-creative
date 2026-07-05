@@ -16,13 +16,13 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: "portrait-primary",
     icons: [
       {
-        src: "/favicon-192.png",
+        src: "/cgc-site-icon-192.png",
         sizes: "192x192",
         type: "image/png",
         purpose: "maskable",
       },
       {
-        src: "/favicon-192.png",
+        src: "/cgc-site-icon-192.png",
         sizes: "192x192",
         type: "image/png",
         purpose: "any",
