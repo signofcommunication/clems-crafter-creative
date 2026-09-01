@@ -56,9 +56,9 @@ const team = [
     image: "/teams/anti.jpeg",
   },
   {
-    name: "Andre Fahmi",
-    role: "HR GA",
-    image: "/teams/andre.jpeg",
+    name: "Muh.Yusrin",
+    role: "HRGA",
+    image: "/teams/yusrin.png",
   },
 ];
 
