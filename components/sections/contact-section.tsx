@@ -6,6 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { Send, Instagram, Linkedin } from "lucide-react";
+import { sendContactMessage } from "../../lib/contact-notification";
 
 export function ContactSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -14,7 +15,7 @@ export function ContactSection() {
     email: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -23,11 +24,19 @@ export function ContactSection() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setSubmitted(false), 3000);
+    setStatus("sending");
+
+    const success = await sendContactMessage(formData);
+
+    if (success) {
+      setStatus("sent");
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => setStatus("idle"), 3000);
+    } else {
+      setStatus("error");
+    }
   };
 
   return (
@@ -229,7 +238,8 @@ export function ContactSection() {
 
               <Button
                 type="submit"
-                className="relative bg-foreground text-background hover:bg-accent hover:text-muted px-8 py-3 text-sm uppercase tracking-wide transition-all duration-300 overflow-hidden"
+                disabled={status === "sending"}
+                className="relative bg-foreground text-background hover:bg-accent hover:text-muted px-8 py-3 text-sm uppercase tracking-wide transition-all duration-300 overflow-hidden disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {/* Shimmer effect */}
                 <motion.div
@@ -241,7 +251,7 @@ export function ContactSection() {
                 />
 
                 <span className="relative z-10 inline-flex items-center gap-2">
-                  Send Message
+                  {status === "sending" ? "Sending..." : "Send Message"}
                   {/* Icon with pulse animation */}
                   <motion.div
                     animate={{
@@ -259,13 +269,23 @@ export function ContactSection() {
               </Button>
             </div>
 
-            {submitted && (
+            {status === "sent" && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-sm text-accent"
               >
                 Thank you. We'll be in touch soon.
+              </motion.div>
+            )}
+
+            {status === "error" && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-sm text-destructive"
+              >
+                Something went wrong. Please try again or email us directly.
               </motion.div>
             )}
           </motion.form>
