@@ -19,19 +19,11 @@ export default function Home() {
       <StructuredData />
       <main className="min-h-screen w-full">
         <HeroSection />
-        <section id="about">
-          <AboutSection />
-        </section>
-        <section id="services">
-          <ServicesSection />
-        </section>
-        <section id="team">
-          <TeamSection />
-        </section>
+        <AboutSection />
+        <ServicesSection />
+        <TeamSection />
         <PortfolioSection />
-        <section id="contact">
-          <ContactSection />
-        </section>
+        <ContactSection />
       </main>
       <FooterSection />
     </>
