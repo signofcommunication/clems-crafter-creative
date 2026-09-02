@@ -21,6 +21,11 @@ const team = [
     image: "/teams/fikri.jpeg",
   },
   {
+    name: "Edi Prasetyo",
+    role: "Business Analyst",
+    image: "/teams/edi.jpg",
+  },
+  {
     name: "Ari Putra Frederick Leluly",
     role: "Fullstack Engineer",
     image: "/teams/ari.png",
