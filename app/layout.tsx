@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
+import { WhatsAppFloatButton } from "@/components/whatsapp-float-button";
 import "./globals.css";
 
 const geist = Geist({
@@ -153,6 +154,7 @@ export default function RootLayout({
       </head>
       <body className={`font-sans antialiased`} suppressHydrationWarning>
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <WhatsAppFloatButton />
         <Analytics />
       </body>
     </html>

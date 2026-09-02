@@ -7,6 +7,8 @@ import { useState } from "react";
 import { Button } from "../ui/button";
 import { Send, Instagram, Linkedin } from "lucide-react";
 import { sendContactMessage } from "../../lib/contact-notification";
+import { WHATSAPP_HREF } from "../../lib/whatsapp";
+import { WhatsAppIcon } from "../icons/whatsapp-icon";
 
 export function ContactSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -91,10 +93,25 @@ export function ContactSection() {
                 Phone
               </p>
               <a
-                href="tel:+1234567890"
+                href="tel:+628881513797"
                 className="text-lg text-foreground hover:text-accent transition-colors duration-300"
               >
                 +62 (888) 1513-797
+              </a>
+            </div>
+
+            <div>
+              <p className="text-sm uppercase tracking-wide text-muted-foreground mb-2">
+                WhatsApp
+              </p>
+              <a
+                href={WHATSAPP_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-lg text-foreground hover:text-accent transition-colors duration-300"
+              >
+                <WhatsAppIcon className="w-5 h-5" />
+                <span>Chat via WhatsApp</span>
               </a>
             </div>
 
